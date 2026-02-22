@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "./components/RootLayout";
+import { Home } from "./pages/Home";
 
-const Home = () => <h2>Главная страница</h2>;
 const Search = () => <h2>Страница поиска</h2>;
 const MovieDetails = () => <h2>Детали фильма</h2>;
 
