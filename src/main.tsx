@@ -3,9 +3,12 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
+import { LanguageProvider } from './context/LanguageProvider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <LanguageProvider onLanguageChange={() => router.revalidate()}>
+      <RouterProvider router={router} />
+    </LanguageProvider>
   </StrictMode>,
 );

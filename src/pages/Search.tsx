@@ -1,31 +1,47 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import * as z from 'zod';
 import type { Movie } from '../types/movie';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { MovieCard } from '../components/MovieCard';
-
-const searchSchema = z.object({
-  query: z.string().min(2, 'Введите минимум 2 символа'),
-});
-type SearchForm = z.infer<typeof searchSchema>;
+import { useLanguage } from '../context/LanguageContext';
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export const Search = () => {
+  const { t, language } = useLanguage();
   const [results, setResults] = useState<Movie[]>([]);
+
+  const searchSchema = useMemo(
+    () =>
+      z.object({
+        query: z.string().min(2, t('SEARCH_ERROR_MIN')),
+      }),
+    [t],
+  );
+  type SearchForm = z.infer<typeof searchSchema>;
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<SearchForm>({
     resolver: zodResolver(searchSchema),
   });
 
+  // Reset results and search field when language changes
+  useEffect(() => {
+    /* eslint-disable */
+    setResults([]);
+    reset();
+    /* eslint-enable */
+  }, [language, reset, setResults]);
+
   const onSubmit = async (data: SearchForm) => {
+    const langParam = language === 'ru' ? 'ru-RU' : 'en-US';
     const res = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${data.query}&language=ru-RU`,
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${data.query}&language=${langParam}`,
     );
     const json = await res.json();
     setResults(json.results);
@@ -33,13 +49,13 @@ export const Search = () => {
 
   return (
     <div>
-      <h2 className="mb-6 text-3xl font-bold">Поиск фильмов</h2>
+      <h2 className="mb-6 text-3xl font-bold">{t('SEARCH_TITLE')}</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="mb-8 flex items-start gap-4">
         <div className="flex-1">
           <input
             {...register('query')}
             type="text"
-            placeholder="Например: Матрица"
+            placeholder={t('SEARCH_PLACEHOLDER')}
             className="w-full rounded border p-3 shadow-sm focus:outline-blue-500"
           />
           {errors.query && <p className="mt-1 text-red-500">{errors.query.message}</p>}
@@ -48,7 +64,7 @@ export const Search = () => {
           type="submit"
           className="cursor-pointer rounded bg-blue-600 px-6 py-3 text-white shadow hover:bg-blue-700"
         >
-          Найти
+          {t('SEARCH_BUTTON')}
         </button>
       </form>
 
