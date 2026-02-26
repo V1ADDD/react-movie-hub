@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const MovieCard = memo(({ movie }: { movie: Movie }) => {
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden hover:cursor-pointer hover:scale-105 transition-transform">
             <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}

@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "./components/RootLayout";
 import { Home } from "./pages/Home";
+import { Search } from "./pages/Search";
 
-const Search = () => <h2>Страница поиска</h2>;
 const MovieDetails = () => <h2>Детали фильма</h2>;
 
 export const router = createBrowserRouter([
