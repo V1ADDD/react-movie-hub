@@ -38,7 +38,7 @@ export const Search = () => {
                     />
                     {errors.query && <p className='text-red-500 mt-1'>{errors.query.message}</p>}
                 </div>
-                <button type='submit' className='bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700'>
+                <button type='submit' className='bg-blue-600 text-white px-6 py-3 rounded shadow cursor-pointer hover:bg-blue-700'>
                     Найти
                 </button>
             </form>
