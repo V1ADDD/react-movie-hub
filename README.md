@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# 🎬 Movie Hub | Кино-Хаб
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive web application for exploring movies, built with React and TMDB API.
+Современное адаптивное веб-приложение для поиска и просмотра информации о фильмах, созданное с использованием React и TMDB API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌍 Languages / Языки
+- [English](#-english)
+- [Русский](#-русский)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🇺🇸 English
 
-## Expanding the ESLint configuration
+### 🚀 Overview
+**Movie Hub** is a feature-rich movie database explorer. It allows users to browse trending movies, search for specific titles, and view detailed information including ratings, release dates, and descriptions. The app features full bilingual support (English and Russian).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠 Tech Stack
+- **Frontend**: React 19, TypeScript, Vite
+- **Styling**: Tailwind CSS
+- **Routing**: React Router DOM v7
+- **Fuctional**: Zod, React Hook Form
+- **API**: TMDB (The Movie Database)
+- **Testing**: Vitest, React Testing Library, JSDOM
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### ✨ Features
+- **Trending Movies**: Discover what's popular right now.
+- **Advanced Search**: Fast and reactive search with automatic state reset on language change.
+- **Deep Localization**: Full RU/EN support for both UI and API data.
+- **Dynamic Details**: Real-time data re-fetching when switching languages on the movie details page.
+- **Robust Testing**: Comprehensive unit and integration test suite.
+- **Responsive Design**: Premium look and feel on all devices.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 📦 Getting Started
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/V1ADDD/react-movie-hub.git
+   ```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Environment Setup**:
+   Create a `.env` file in the root directory and add your TMDB API Key:
+   ```env
+   VITE_TMDB_API_KEY=your_api_key_here
+   ```
+4. **Run development server**:
+   ```bash
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### 🧪 Testing
+Run the test suite with Vitest:
+```bash
+npm run test        # Run all tests
+npm run coverage    # Run tests and generate coverage report
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## 🇷🇺 Русский
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### 🚀 Обзор
+**Кино-Хаб** — это функциональное приложение для поиска фильмов. Оно позволяет просматривать популярные новинки, искать конкретные фильмы и изучать детальную информацию: рейтинги, даты выхода и описания. Приложение полностью поддерживает два языка (английский и русский).
+
+### 🛠 Технологический стек
+- **Фронтенд**: React 19, TypeScript, Vite
+- **Стили**: Tailwind CSS
+- **Роутинг**: React Router DOM v7
+- **Функционал**: Zod, React Hook Form
+- **API**: TMDB (The Movie Database)
+- **Тестирование**: Vitest, React Testing Library, JSDOM
+
+### ✨ Особенности
+- **Популярные фильмы**: Узнайте, что смотрят прямо сейчас.
+- **Продвинутый поиск**: Быстрый и реактивный поиск с автоматическим сбросом при смене языка.
+- **Глубокая локализация**: Полная поддержка RU/EN для интерфейса и данных из API.
+- **Динамические детали**: Мгновенное обновление данных при смене языка на странице фильма.
+- **Надежное тестирование**: Набор модульных и интеграционных тестов.
+- **Адаптивный дизайн**: Премиальный интерфейс, работающий на всех устройствах.
+
+### 📦 Начало работы
+1. **Клонируйте репозиторий**:
+   ```bash
+   git clone https://github.com/V1ADDD/react-movie-hub.git
+   ```
+2. **Установите зависимости**:
+   ```bash
+   npm install
+   ```
+3. **Настройка окружения**:
+   Создайте файл `.env` в корневой директории и добавьте ваш ключ TMDB API:
+   ```env
+   VITE_TMDB_API_KEY=ваш_ключ_api
+   ```
+4. **Запуск сервера для разработки**:
+   ```bash
+   npm run dev
+   ```
+
+### 🧪 Тестирование
+Запуск тестов с помощью Vitest:
+```bash
+npm run test        # Запустить все тесты
+npm run coverage    # Запустить тесты и вывести отчет о покрытии
 ```
