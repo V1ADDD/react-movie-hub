@@ -5,12 +5,14 @@ import { Search } from "./pages/Search";
 
 import { movieDetailsLoader } from "./pages/MovieDetails";
 import { lazy, Suspense } from "react";
+import { ErrorPage } from "./pages/ErrorPage";
 
 const MovieDetails = lazy(() => import('./pages/MovieDetails'));
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <RootLayout />,
+        errorElement: <ErrorPage />,
         children: [
             { index: true, element: <Home /> },
             { path: 'search', element: <Search /> },
