@@ -4,11 +4,11 @@ export const ErrorPage = () => {
   const error = useRouteError();
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-red-50">
+    <div className="flex h-screen flex-col items-center justify-center bg-red-50">
       <h1 className="text-4xl font-bold text-red-600">Упс!</h1>
-      <p className="text-xl mt-4">Что-то пошло не так.</p>
-      <p className="text-gray-500 mt-2">
-        { (error as { statusText?: string })?.statusText || (error as Error)?.message }
+      <p className="mt-4 text-xl">Что-то пошло не так.</p>
+      <p className="mt-2 text-gray-500">
+        {(error as { statusText?: string })?.statusText || (error as Error)?.message}
       </p>
     </div>
   );
